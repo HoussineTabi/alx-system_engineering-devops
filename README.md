@@ -1,3 +1,2 @@
 #!/bin/bash 
-some basics about executing commands in files 
-
+some basics about executing commands in files
