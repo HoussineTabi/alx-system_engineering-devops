@@ -1,2 +1,3 @@
 #!/bin/bash 
-shell basic cours
+some basics about executing commands in files 
+
