@@ -1,2 +1,2 @@
 #!/bin/bash
-cat input | rev 
+cat < | rev 
