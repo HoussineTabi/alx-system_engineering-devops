@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -lat | head 
+find . -type f | ls -lat  | head 
