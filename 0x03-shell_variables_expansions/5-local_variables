@@ -1,0 +1,2 @@
+#!/bin/bash
+(set | grep -E '^[[:alpha:]]+='); echo ""; printenv; echo ""; declare -F | awk '{print $3}'
