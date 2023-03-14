@@ -1,0 +1,2 @@
+#!/bin/bahs
+echo $((2#$BINARY))
