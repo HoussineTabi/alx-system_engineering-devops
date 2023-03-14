@@ -1,2 +1,2 @@
 #!/bin/bash
-printenv  set | grep -E '^[[:alpha:]]+='  declare -F | awk '{print $3}'
+set
