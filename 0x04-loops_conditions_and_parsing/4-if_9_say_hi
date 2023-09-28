@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# prints nine "Best school" on the screen or Hi in 9
+i=0
+while [ "$i" -lt 10 ]
+do
+ if [ "$i" -ne 8 ]
+ then
+   echo "Best School"
+ else
+   echo "Hi"
+ fi
+ ((i = i + 1))
+done
