@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# the 12 hours clock print
+
+Hour=0
+minutes=1
+echo "Hour: $Hour"
+while [ $Hour -lt 12 ]
+do
+   if [ $minutes -gt 59 ]
+   then
+      ((Hour++))
+      echo "Hour: $Hour"
+      ((minutes = 1))
+   else
+      echo "$minutes"
+      ((minutes++))
+   fi
+done
