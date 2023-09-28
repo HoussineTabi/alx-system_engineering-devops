@@ -6,7 +6,10 @@ minutes=1
 echo "Hour: $Hour"
 while [ $Hour -lt 13 ]
 do
-   if [ $minutes -gt 59 ]
+   if [ $Hour -eq 13 ]
+   then
+      break
+   elif [ $minutes -gt 59 ]
    then
       ((Hour++))
       echo "Hour: $Hour"
