@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# writes ten times the string "Best school" on the screen
+i=0
+while [ "$i" -lt 10 ]
+do
+   echo "Best School"
+   ((i = i + 1))
+done
