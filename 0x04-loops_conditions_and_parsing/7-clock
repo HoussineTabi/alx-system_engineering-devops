@@ -4,10 +4,11 @@
 Hour=0
 minutes=1
 echo "Hour: $Hour"
-while [ $Hour -lt 12 ]
+while [ $Hour -lt 13 ]
 do
-   if [ $Hour -eq 12 ]
+   if [ $Hour -eq 12 ] && [ $minutes -eq 59 ]
    then
+      echo 59
       break
    elif [ $minutes -gt 59 ]
    then
