@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# prints the string "Best School" ten times using the loop until
+
+i=0
+
+until [ "$i" -eq 9 ]
+do
+  echo "Best School"
+  ((i =i + 1))
+done
