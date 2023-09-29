@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# The script prints all the processes information
+
+ps aux | grep bash
