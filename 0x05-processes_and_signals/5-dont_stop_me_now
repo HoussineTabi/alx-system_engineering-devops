@@ -2,5 +2,11 @@
 # kill the process number 4-*
 
 process_name="4-to_infinity_and_beyond"
-pid=$(pgrep "$process_name")
-kill "$pid"
+
+# Check if the process is running
+if pgrep -x "$process_name" > /dev/null; then
+    echo "Stopping the $process_name process..."
+    pkill "$process_name"
+else
+    echo "The $process_name process is not running."
+fi
