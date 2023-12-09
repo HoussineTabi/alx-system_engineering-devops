@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+# server_02
+ssh ubuntu@54.144.20.255

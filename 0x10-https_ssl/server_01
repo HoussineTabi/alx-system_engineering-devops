@@ -1,0 +1,5 @@
+
+#!/usr/bin/bash
+# web server 01
+ssh ubuntu@3.84.255.16
+# end
