@@ -32,22 +32,3 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
-
-# start of parameters for beta-scribbles.tech
-frontend houssinetechairbnb.tech-http-frontend
-        bind     *:80
-        http-request set-header X-Forwarded-Proto http
-        default_backend  houssinetechairbnb.tech-backend
-
-
-frontend  houssinetechairbnb.tech-https-frontend
-        bind *:443 ssl crt /etc/letsencrypt/live/www.houssinetechairbnb.tech/fullchain.pem
-        http-request set-header X-Forwarded-Proto https
-        default_backend houssinetechairbnb.tech-backend
-
-
-backend houssinetechairbnb.tech-backend
-        balance roundrobin
-        server 385253-web-01 3.84.255.16:80 check
-        server 385253-web-02 54.144.20.225:80 check
-# end of parameters
