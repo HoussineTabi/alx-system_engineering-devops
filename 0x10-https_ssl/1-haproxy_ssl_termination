@@ -32,3 +32,13 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
+frontend http_front
+        bind *:443 ssl  /etc/letsencrypt/live/www.houssinetechairbnb.tech/www.houssinetechairbnb.tech.pem
+        http-request add-header X-Forwarded-Proto http
+        http-request redirect scheme https if !{ ssl_fc }
+        use_backend http_back
+
+backend http_back
+        redirect scheme http if !{ ssl_fc }
+        server 385253-web-01 3.84.255.16:80
+        server 385253-web-02 54.144.20.225:80
