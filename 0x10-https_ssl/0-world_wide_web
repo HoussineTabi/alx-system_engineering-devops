@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 # A Bash script that will display information about the subdomains
 
 dns_config () {
