@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# the script stops apache2 and start nginx as web service under user nginx
+# fix container:: task 2
 pkill -f apache2
 chmod 644 /etc/nginx/nginx.conf
 sed -Ei 's/\s*#?\s*user .*/user nginx;/' /etc/nginx/nginx.conf
