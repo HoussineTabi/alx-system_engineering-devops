@@ -1,9 +1,16 @@
 #!/usr/bin/python3
-import sys
+"""the module make request from Reddits API"""
+import requests
 
-if __name__ == '__main__':
-    top_ten = __import__('1-top_ten').top_ten
-    if len(sys.argv) < 2:
-        print("Please pass an argument for the subreddit to search.")
-    else:
-        top_ten(sys.argv[1])
+
+def top_ten(subreddit):
+    """the function prints the titles of the first 10 hot posts"""
+    url = 'https://www.reddit.com/r/{}/.json'.format(subreddit)
+    header = {'User-Agent': 'Reddit API test'}
+    response = requests.get(url, headers=header, allow_redirects=False)
+    dict = response.json()
+    if dict.get("error", 200) == 404:
+        return print("None")
+    l_ist = dict.get("data").get("children")
+    for dic in l_ist[0:10]:
+        print(dic.get("data").get("title"))
