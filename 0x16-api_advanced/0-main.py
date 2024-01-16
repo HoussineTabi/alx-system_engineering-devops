@@ -1,9 +1,16 @@
 #!/usr/bin/python3
-import sys
+"""my first Reddit API request"""
+import requests
 
-if __name__ == '__main__':
-    number_of_subscribers = __import__('0-subs').number_of_subscribers
-    if len(sys.argv) < 2:
-        print("Please pass an argument for the subreddit to search.")
-    else:
-        print("{:d}".format(number_of_subscribers(sys.argv[1])))
+
+def number_of_subscribers(subreddit):
+    """the function return the number of subcribers"""
+    url = 'https://www.reddit.com/r/{}/.json'.format(subreddit)
+    header = {'User-Agent': 'Reddit API test'}
+
+    response = requests.get(url, headers=header, allow_redirects=False)
+    dict = response.json()
+    if dict.get("error", 200) == 404:
+        return 0
+    return dict.get("data").get("children")[0].get("data")\
+        .get("subreddit_subscribers")
