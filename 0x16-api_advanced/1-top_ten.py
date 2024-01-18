@@ -1,16 +1,25 @@
 #!/usr/bin/python3
-"""the module make request from Reddits API"""
+"""
+Query Reddit API for titles of top ten posts of a given subreddit
+"""
 import requests
 
 
 def top_ten(subreddit):
-    """the function prints the titles of the first 10 hot posts"""
-    url = 'https://www.reddit.com/r/{}/.json'.format(subreddit)
-    header = {'User-Agent': 'Reddit API test'}
-    response = requests.get(url, headers=header, allow_redirects=False)
-    dict = response.json()
-    if dict.get("error", 200) == 404:
-        return print("None")
-    l_ist = dict.get("data").get("children")
-    for dic in l_ist[0:10]:
-        print(dic.get("data").get("title"))
+    """
+        return top ten titles for a given subreddit
+        return None if invalid subreddit given
+    """
+    # get user agent
+    # https://stackoverflow.com/questions/10606133/ -->
+    # sending-user-agent-using-requests-library-in-python
+    headers = requests.utils.default_headers()
+    headers.update({'User-Agent': 'My User Agent 1.0'})
+
+    url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
+    r = requests.get(url, headers=headers).json()
+    top_ten = r.get('data', {}).get('children', [])
+    if not top_ten:
+        print(None)
+    for t in top_ten:
+        print(t.get('data').get('title'))
